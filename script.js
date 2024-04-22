@@ -30,7 +30,6 @@ function getUserChoice() {
 function playRound(userChoice, botChoice) {
 	if (userChoice == botChoice) {
 			alert("Round Draw")
-			console.log(score.user);
 	}	else if (userChoice == "scissors") {
 			if (botChoice == "paper") {
 					alert("SCISSORS beats PAPER! You Win this Round.");
@@ -62,12 +61,13 @@ function playRound(userChoice, botChoice) {
 // Main
 function playGame(n) {
 	for (let i=0; i<n; i++) {
-		let botChoice = getBotChoice();
 		let userChoice = getUserChoice();
+		let botChoice = getBotChoice();
 		playRound(userChoice, botChoice);
+		alert(`You: ${score.user}\nBot: ${score.bot}`)
 	}
 	
-	alert(`You: ${score.user}\nBot: ${score.bot}`)
+	
 	if (score.user == score.bot) {
 			alert("Game DRAW");
 	}	else if (score.user > score.bot){
@@ -78,4 +78,4 @@ function playGame(n) {
 }
 
 // Play Game
-playGame(2);
+playGame(5);
